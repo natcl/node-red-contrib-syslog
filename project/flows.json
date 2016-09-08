@@ -1,0 +1,57 @@
+[
+    {
+        "id": "4c18ea44.b3e714",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "b6c901be.4937",
+        "type": "syslog-node",
+        "z": "4c18ea44.b3e714",
+        "name": "",
+        "level": "0",
+        "category": "1",
+        "process": "Node-RED",
+        "pid": "0",
+        "hostname_mode": "custom",
+        "hostname": "MyHostName",
+        "x": 720,
+        "y": 180,
+        "wires": [
+            [
+                "8712a63e.78ed58"
+            ]
+        ]
+    },
+    {
+        "id": "ed19a0ad.12e66",
+        "type": "inject",
+        "z": "4c18ea44.b3e714",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 540,
+        "y": 140,
+        "wires": [
+            [
+                "b6c901be.4937"
+            ]
+        ]
+    },
+    {
+        "id": "8712a63e.78ed58",
+        "type": "debug",
+        "z": "4c18ea44.b3e714",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 940,
+        "y": 180,
+        "wires": []
+    }
+]

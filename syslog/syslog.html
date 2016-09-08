@@ -1,0 +1,100 @@
+<script type="text/javascript">
+    RED.nodes.registerType('syslog-node',{
+        category: 'function',
+        color: '#F3B567',
+        defaults: {
+            name: {value:""},
+            level: {value:"0"},
+            category: {value:"1"},
+            process: {value:""},
+            pid: {value:"0",validate:RED.validators.number()},
+            hostname_mode: {value:"automatic"},
+            hostname: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "debug.png",
+        label: function() {
+            return this.name||"syslog";
+        },
+        paletteLabel: 'syslog',
+        oneditprepare: function() {
+          $("#node-input-hostname_mode").on("change",function() {
+            if ($("#node-input-hostname_mode").val() === "automatic") {
+                $("#node-input-hostname").hide();
+            } else {
+                $("#node-input-hostname").show();
+            }
+          });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="syslog-node">
+  <div class="form-row">
+      <label for="node-input-level"><i class="fa fa-wrench"></i> <span>Level</span></label>
+      <select id="node-input-level" style="width:310px;">
+      <option value="0">0 - Emergency: system is unusable</option>
+      <option value="1">1 - Alert: action must be taken immediately</option>
+      <option value="2">2 - Critical: critical conditions</option>
+      <option value="3">3 - Error: error conditions</option>
+      <option value="4">4 - Warning: warning conditions</option>
+      <option value="5">5 - Notice: normal but significant condition</option>
+      <option value="6">6 - Informational: informational messages</option>
+      <option value="7">7 - Debug: debug-level messages</option>
+    </select>
+  </div>
+  <div class="form-row">
+      <label for="node-input-category"><i class="fa fa-wrench"></i> <span>Category</span></label>
+      <select id="node-input-category" style="width:310px;">
+      <option value="0">0 - kernel messages</option>
+      <option value="1">1 - user-level messages</option>
+      <option value="2">2 - mail system</option>
+      <option value="3">3 - system daemons</option>
+      <option value="4">4 - security/authorization messages</option>
+      <option value="5">5 - messages generated internally by syslogd</option>
+      <option value="6">6 - line printer subsystem</option>
+      <option value="7">7 - network news subsystem</option>
+      <option value="8">8 - UUCP subsystem</option>
+      <option value="9">9 - clock daemon</option>
+      <option value="10">10 - security/authorization messages</option>
+      <option value="11">11 - FTP daemon</option>
+      <option value="12">12 - NTP subsystem</option>
+      <option value="13">13 - log audit</option>
+      <option value="14">14 - log alert</option>
+      <option value="15">15 - clock daemon</option>
+      <option value="16">16 - local use 0 (local0)</option>
+      <option value="17">17 - local use 1 (local1)</option>
+      <option value="18">18 - local use 2 (local2)</option>
+      <option value="19">19 - local use 3 (local3)</option>
+      <option value="20">20 - local use 4 (local4)</option>
+      <option value="21">21 - local use 5 (local5)</option>
+      <option value="22">22 - local use 6 (local6)</option>
+      <option value="23">23 - local use 7 (local7)</option>
+    </select>
+  </div>
+  <div class="form-row">
+      <label for="node-input-process"><i class="icon-tag"></i> Process</label>
+      <input type="text" id="node-input-process" placeholder="Process">
+  </div>
+  <div class="form-row">
+      <label for="node-input-pid"><i class="icon-tag"></i> PID</label>
+      <input type="text" id="node-input-pid" placeholder="0">
+  </div>
+  <div class="form-row">
+      <label for="node-input-hostname_mode"><i class="fa fa-wrench"></i> <span>Hostname</span></label>
+      <select id="node-input-hostname_mode" style="width:100px;">
+      <option value="automatic">Automatic</option>
+      <option value="custom">Custom</option>
+    </select>
+    <input type="text" id="node-input-hostname" placeholder="Hostname" style="width:218px;">
+  </div>
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="syslog-node">
+    <p>A simple node that converts the message payloads into all lower-case characters</p>
+</script>
