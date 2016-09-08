@@ -5,25 +5,6 @@
         "label": "Flow 1"
     },
     {
-        "id": "b6c901be.4937",
-        "type": "syslog-node",
-        "z": "4c18ea44.b3e714",
-        "name": "",
-        "level": "0",
-        "category": "1",
-        "process": "Node-RED",
-        "pid": "0",
-        "hostname_mode": "custom",
-        "hostname": "MyHostName",
-        "x": 720,
-        "y": 180,
-        "wires": [
-            [
-                "8712a63e.78ed58"
-            ]
-        ]
-    },
-    {
         "id": "ed19a0ad.12e66",
         "type": "inject",
         "z": "4c18ea44.b3e714",
@@ -38,7 +19,7 @@
         "y": 140,
         "wires": [
             [
-                "b6c901be.4937"
+                "761262e0.89ed9c"
             ]
         ]
     },
@@ -53,5 +34,40 @@
         "x": 940,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "2f4414a1.d0bbec",
+        "type": "udp out",
+        "z": "4c18ea44.b3e714",
+        "name": "",
+        "addr": "2.0.0.2",
+        "iface": "",
+        "port": "514",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 1050,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "761262e0.89ed9c",
+        "type": "syslog-node",
+        "z": "4c18ea44.b3e714",
+        "name": "",
+        "level": "6",
+        "category": "1",
+        "process": "Node-RED",
+        "pid": "0",
+        "hostname_mode": "automatic",
+        "hostname": "",
+        "x": 780,
+        "y": 240,
+        "wires": [
+            [
+                "8712a63e.78ed58"
+            ]
+        ]
     }
 ]
