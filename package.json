@@ -9,10 +9,10 @@
     "type": "git",
     "url": "https://github.com/natcl/node-red-contrib-syslog.git"
   },
-  "keywords": ["node-red"],
+  "keywords": ["node-red", "syslog"],
   "node-red": {
     "nodes": {
-      "template": "syslog/syslog.js"
+      "syslog": "syslog/syslog.js"
     }
   }
 }

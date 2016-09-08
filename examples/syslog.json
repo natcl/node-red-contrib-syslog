@@ -1,10 +1,5 @@
 [
     {
-        "id": "4c18ea44.b3e714",
-        "type": "tab",
-        "label": "Flow 1"
-    },
-    {
         "id": "ed19a0ad.12e66",
         "type": "inject",
         "z": "4c18ea44.b3e714",
@@ -28,14 +23,14 @@
         "type": "udp out",
         "z": "4c18ea44.b3e714",
         "name": "",
-        "addr": "2.0.0.2",
+        "addr": "localhost",
         "iface": "",
         "port": "514",
         "ipv": "udp4",
         "outport": "",
         "base64": false,
         "multicast": "false",
-        "x": 880,
+        "x": 890,
         "y": 140,
         "wires": []
     },
