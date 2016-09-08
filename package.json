@@ -1,16 +1,16 @@
 {
-  "name": "node-red-contrib-template",
+  "name": "node-red-contrib-syslog",
   "version": "0.0.1",
-  "description": "A Node-RED node template",
+  "description": "A Node-RED syslog formatter",
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/natcl/node-red-contrib-template.git"
+    "url": "https://github.com/natcl/node-red-contrib-syslog.git"
   },
   "keywords": ["node-red"],
   "node-red": {
     "nodes": {
-      "template": "template/template.js"
+      "template": "syslog/syslog.js"
     }
   }
 }
