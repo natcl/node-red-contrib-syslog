@@ -122,4 +122,10 @@
       <li><code>msg.syslog.hostname</code> </li>
       <li><code>msg.syslog.time</code> </li>
     </ul></p>
+
+    <p>This node will also parse incoming syslog formatted messages.
+    It would typically come from an UDP input node set to output a Buffer.
+    The <code>msg.payload</code> will contain the main message and the parsed
+    properties will be available in the <code>msg.syslog</code> object.</p>
+    </p>
 </script>

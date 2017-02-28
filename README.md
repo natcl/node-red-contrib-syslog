@@ -12,3 +12,5 @@ You can also set the properties dynamically by passing a msg.syslog object:
   - `msg.syslog.pid`
   - `msg.syslog.hostname`
   - `msg.syslog.time`
+
+This node will also parse incoming syslog formatted messages.  It would typically come from an UDP input node set to output a Buffer.  The `msg.payload` will contain the main message and the parsed properties will be available in the `msg.syslog` object.

@@ -15,8 +15,8 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 480,
-        "y": 140,
+        "x": 240,
+        "y": 134,
         "wires": [
             [
                 "761262e0.89ed9c"
@@ -28,19 +28,38 @@
         "type": "udp out",
         "z": "4c18ea44.b3e714",
         "name": "",
-        "addr": "2.0.0.2",
+        "addr": "localhost",
         "iface": "",
-        "port": "514",
+        "port": "5000",
         "ipv": "udp4",
         "outport": "",
         "base64": false,
         "multicast": "false",
-        "x": 880,
-        "y": 140,
+        "x": 826,
+        "y": 134,
         "wires": []
     },
     {
         "id": "761262e0.89ed9c",
+        "type": "syslog-node",
+        "z": "4c18ea44.b3e714",
+        "name": "",
+        "level": "0",
+        "category": "1",
+        "process": "Node-RED",
+        "pid": "0",
+        "hostname_mode": "automatic",
+        "hostname": "",
+        "x": 470,
+        "y": 134,
+        "wires": [
+            [
+                "2f4414a1.d0bbec"
+            ]
+        ]
+    },
+    {
+        "id": "4ab5cb14.895744",
         "type": "syslog-node",
         "z": "4c18ea44.b3e714",
         "name": "",
@@ -50,25 +69,43 @@
         "pid": "0",
         "hostname_mode": "automatic",
         "hostname": "",
-        "x": 710,
-        "y": 140,
+        "x": 729.5,
+        "y": 336,
         "wires": [
             [
-                "2f4414a1.d0bbec",
-                "9c710c7d.638ef"
+                "4469b9f6.cded18"
             ]
         ]
     },
     {
-        "id": "9c710c7d.638ef",
+        "id": "4469b9f6.cded18",
         "type": "debug",
         "z": "4c18ea44.b3e714",
         "name": "",
         "active": true,
         "console": "false",
-        "complete": "false",
-        "x": 910,
-        "y": 240,
+        "complete": "true",
+        "x": 900,
+        "y": 335,
         "wires": []
+    },
+    {
+        "id": "fec689cc.722ba8",
+        "type": "udp in",
+        "z": "4c18ea44.b3e714",
+        "name": "",
+        "iface": "",
+        "port": "5000",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 207.5,
+        "y": 283,
+        "wires": [
+            [
+                "4ab5cb14.895744"
+            ]
+        ]
     }
 ]

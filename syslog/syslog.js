@@ -15,6 +15,7 @@
  **/
 
 var serialize = require('syslog-serialize');
+var parse = require('syslog-parse');
 var os = require('os');
 
 module.exports = function(RED) {
@@ -23,6 +24,24 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         var node = this;
         this.on('input', function(msg) {
+
+            if (Buffer.isBuffer(msg.payload)) {
+                var parsedLog = parse(msg.payload.toString());
+
+                msg.syslog = {};
+                msg.syslog.priority = parsedLog.priority;
+                msg.syslog.facilityCode = parsedLog.facilityCode;
+                msg.syslog.facility = parsedLog.facility;
+                msg.syslog.severityCode = parsedLog.severityCode;
+                msg.syslog.severity = parsedLog.severity;
+                msg.syslog.time = parsedLog.time;
+                msg.syslog.host = parsedLog.host;
+                msg.syslog.process = parsedLog.process;
+                msg.syslog.message = parsedLog.message;
+                msg.payload = msg.syslog.message;
+                node.send(msg);
+                return;
+            }
 
             node.level = config.level;
             node.category = config.category;
