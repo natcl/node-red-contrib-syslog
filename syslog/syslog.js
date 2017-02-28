@@ -58,8 +58,3 @@ module.exports = function(RED) {
     }
     RED.nodes.registerType("syslog-node", SyslogNode);
 };
-
-
-
-
-var serialize = require('syslog-serialize');
